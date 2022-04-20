@@ -1,0 +1,38 @@
+<%- include("../includes/header.ejs") %> 
+
+<div class="container p-5">
+    <h1> 購物車</h1>
+    <% if(cartProducts.length>0){ %> 
+        <ul class="list-unstyled p-3">
+            <% for(let item of cartProducts){ %> 
+            <li class="media">
+                <img class="mr-3" style="width:100px;" src="<%= item.productId.imgUrl %>" alt="<%= item.productId.title %>">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1"><%= item.productId.title %></h5>
+                    <small>單格:<%= item.productId.price  %> </small>
+                    <p>數量:<%= item.quantity  %></p>
+                    <p><%= item.productId.description  %></p>
+                </div>
+    
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="badge badge-primary badge-pill mr-3 mt-2"><%= item.quantity%></span>
+    
+                    <form action="/cart-delete-product" method="post">
+                        <input type="hidden" name="productId" value="<%=item._id%>"/>
+                        <button type="submit" class="btn btn-danger">刪除產品</button>
+                    </form>
+    
+                </div>
+            </li>
+            <% } %> 
+        </ul>
+        <form action="/create-order" method="post">
+            <button type="submit" class="btn btn btn-primary">購買</button>
+        </form>
+    <% }else{ %> 
+    <div class="alert alert-danger" role="alert">暫無產品</div>
+    <% } %> 
+    
+</div>
+
+<%- include("../includes/footer.ejs") %> 

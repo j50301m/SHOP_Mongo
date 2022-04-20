@@ -1,0 +1,21 @@
+extends layouts/main-layout.pug
+block styles
+    link(rel="stylesheet", href="/css/product.css")
+    
+block content
+    main.container.p-5
+        h1 我的產品
+        if prods.length > 0
+            div.row
+                each product in prods
+                    div.col-md-4.p-2
+                        div.card(style="width: 18rem;")
+                            img.card-img-top(src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1920px-Node.js_logo.svg.png",
+                            alt="產品圖片")
+                            div.card-body
+                                h5.card-title #{product.title}
+                                p.card-text 產品簡介產品簡介產品簡介產品簡介產品簡介產品簡介
+                                p $99,999
+                                a.btn.btn-primary(href="/") 購買
+        else
+            div.alert.alert-danger(role="alert") 暫無產品

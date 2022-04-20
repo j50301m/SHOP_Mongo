@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= docTitle %> </title>
+    <link rel="styleSheet" href="/css/bootstrap.min.css">
+
+</head>
+
+<% var activeShop,activeProductList,activeCart,activeCheckout,activeAddProduct,activeProductManage; %> 
+<body>
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Node商城</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link <% if(activeShop){%>active<%}%>" aria-current="page" href="/">首頁</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link <% if(activeProductList){%>active<%}%>" href="/product-list">產品列表</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link <% if(activeCart){%>active<%}%>" href="/cart">購物車</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link <% if(activeCheckout){%>active<%}%>" href="/checkout">訂單管理</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link <% if(activeAddProduct){%>active<%}%>" href="/admin/add-product">添加產品</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link <% if(activeProductManage){%>active<%}%>" href="/admin/products">產品管理</a>
+                        </li>
+
+                    </ul>
+              </div>
+            </div>
+          </nav>
+    </header>
+<% if(breadcrumb){%>
+<%- include('./breadcrumb.ejs') %>
+<%}%>
+<main class=" container p-5">

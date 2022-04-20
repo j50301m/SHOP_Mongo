@@ -1,0 +1,35 @@
+<%- include("../includes/header.ejs") %> 
+
+<h1> 訂單管理</h1>
+<% if(orders.length > 0){ %> 
+<ul class="list-group">
+
+<% orders.forEach(function(order){ %> 
+    <li class="list-group-item active">
+        訂單編號:<%= order._id %>
+        <% order.items.forEach(function(item){ %>
+            <% if (!item.productId){%>
+                <Li class="list-group-item">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">此商品被下架了</h5>
+                    </div>
+                </Li>    
+            <% }else{ %> 
+                <Li class="list-group-item">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">商品名稱:<%= item.productId.title %></h5>
+                        <small>單格:<%= item.productId.price  %> </small>
+                        <p>數量:<%= item.quantity  %></p>
+                    </div>
+                </Li>
+            <% } %> 
+
+        <% }); %> 
+    </li>
+<% }); %> 
+</ul>
+<% }else{ %> 
+    <div class="alert alert-danger" role="alert">暫無訂單</div>
+<% } %> 
+
+<%- include("../includes/footer.ejs") %> 
