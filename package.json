@@ -17,13 +17,20 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.2",
+    "connect-mongodb-session": "^3.1.1",
+    "cookie-parser": "^1.4.6",
+    "csurf": "^1.11.0",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
+    "express-flash-messages": "^0.1.1",
     "express-handlebars": "^6.0.3",
+    "express-session": "^1.17.2",
     "mongodb": "^4.5.0",
     "mongoose": "^6.3.0",
     "mysql2": "^2.3.3",
+    "nodemailer": "^6.7.3",
     "pug": "^3.0.2",
     "sequelize": "^6.19.0",
     "uuid": "^8.3.2"

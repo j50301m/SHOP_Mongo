@@ -14,6 +14,7 @@ exports.getProducts=(req,res,next)=>{
                 {name:"首頁",url:"/",hasBreadcrumbUrl:true},
                 {name:"產品列表",hasBreadcrumbUrl:false},
             ],
+           
         });
     });
 }
@@ -29,6 +30,7 @@ exports.getIndex=(req,res,next)=>{
                 {name:"首頁",url:"/",hasBreadcrumbUrl:true},
                 {name:"首頁",hasBreadcrumbUrl:false},
             ],
+            
         });
     }).catch(err=>{
         console.log(err);
@@ -62,6 +64,7 @@ exports.getCart=(req,res,next)=>{
                 {name:"購物車",hasBreadcrumbUrl:false},
             ],
             cartProducts:products,
+            
             //totalPrice:cart.totalPrice,
         });
     }).catch(err=>console.log(err));
@@ -150,6 +153,7 @@ exports.getProductDetail=(req,res,next)=>{
                 {name:"產品列表",url:"/product-list",hasBreadcrumbUrl:true},
                 {name:"產品詳情",hasBreadcrumbUrl:false}
             ],
+            
         });
     })
 
@@ -168,6 +172,7 @@ exports.getCheckout=(req,res,next)=>{
                 {name:"首頁",url:"/",hasBreadcrumbUrl:true},
                 {name:"訂單管理",hasBreadcrumbUrl:false},
             ],
+            
         });
     }).catch(err=>{
         console.log(err);

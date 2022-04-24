@@ -9,7 +9,7 @@
 
 </head>
 
-<% var activeShop,activeProductList,activeCart,activeCheckout,activeAddProduct,activeProductManage; %> 
+<% var activeShop,activeProductList,activeCart,activeCheckout,activeAddProduct,activeProductManage,isAuthenicated; %> 
 <body>
     <header class="main-header">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -19,7 +19,7 @@
                     <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link <% if(activeShop){%>active<%}%>" aria-current="page" href="/">首頁</a>
                         </li>
@@ -27,7 +27,8 @@
                         <li class="nav-item">
                             <a class="nav-link <% if(activeProductList){%>active<%}%>" href="/product-list">產品列表</a>
                         </li>
-                        
+
+                        <% if(isAuthenicated){ %> 
                         <li class="nav-item">
                             <a class="nav-link <% if(activeCart){%>active<%}%>" href="/cart">購物車</a>
                         </li>
@@ -35,7 +36,7 @@
                         <li class="nav-item">
                             <a class="nav-link <% if(activeCheckout){%>active<%}%>" href="/checkout">訂單管理</a>
                         </li>
-
+                        
                         <li class="nav-item">
                             <a class="nav-link <% if(activeAddProduct){%>active<%}%>" href="/admin/add-product">添加產品</a>
                         </li>
@@ -43,8 +44,18 @@
                         <li class="nav-item">
                             <a class="nav-link <% if(activeProductManage){%>active<%}%>" href="/admin/products">產品管理</a>
                         </li>
+                        <% } %> 
 
                     </ul>
+                    <% if(!isAuthenicated){ %> 
+                    <a href="/login" class="btn btn-outline-success">登入</a>
+                    <a href="/signup" class="btn btn-outline-primary ml-2">註冊</a>
+                    <% }else{ %> 
+                    <form action="/logout" method="post">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>"/>
+                        <button class="btn btn-danger ml-2" type="submit">登出</button>
+                    </form>
+                    <% } %>
               </div>
             </div>
           </nav>

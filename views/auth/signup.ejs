@@ -1,0 +1,35 @@
+<%- include("../includes/header.ejs") %> 
+
+<main class="container p-5">
+    <form calss="signup-form" action="/signup" method="post">
+        <%- include("../includes/flash-message.ejs") %>
+
+        <div class="mb-3">
+            <label for="name">用戶名稱</label>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp">
+            <div id="nameHelp" class="form-text text-muted">請輸入名稱</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="email">信箱地址</label>
+            <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text text-muted">請輸入信箱</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="password">用戶密碼</label>
+            <input type="password" class="form-control" id="password" name="password" aria-describedby="passwordHelp">
+            <div id="passwordHelp" class="form-text text-muted">請輸入密碼</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="confirmPassword">再輸入一次</label>
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" aria-describedby="confirmPasswordHelp">
+            <div id="confirmPasswordHelp" class="form-text text-muted">請輸入密碼</div>
+        </div>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <button type="submit" class="btn btn-primary">註冊</button>
+    </form>
+</main>
+    
+<%- include("../includes/footer.ejs") %> 

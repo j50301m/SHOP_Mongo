@@ -10,6 +10,7 @@ exports.getAddProduct=(req,res,next) =>{
                     {name:"添加商品",hasBreadcrumbUrl:false}
                 ],
                 editing:false,
+                
     });
 }
 
@@ -36,6 +37,7 @@ exports.getEditProduct=(req,res,next) =>{
             ],
             editing:editMode,
             product:product,
+            
         });
     });
 
@@ -54,6 +56,7 @@ exports.getProducts=(req,res,next)=>{
                 {name:"首頁",url:"/",hasBreadcrumbUrl:true},
                 {name:"產品管理",hasBreadcrumbUrl:false},
             ],
+            
         });
     }).catch(err=>{console.log(err)});;
 }

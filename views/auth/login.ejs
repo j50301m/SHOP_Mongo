@@ -1,0 +1,23 @@
+<%- include("../includes/header.ejs") %> 
+
+<main class="container p-5">
+    <form calss="login-form" action="/login" method="post">
+        <%- include("../includes/flash-message.ejs") %>
+
+        <div class="mb-3">
+            <label for="email">信箱地址</label>
+            <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text text-muted">請輸入信箱</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="password">用戶密碼</label>
+            <input type="password" class="form-control" id="password" name="password" aria-describedby="passwordHelp">
+            <div id="passwordHelp" class="form-text text-muted">請輸入密碼</div>
+        </div>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <button type="submit" class="btn btn-primary">登入</button>
+    </form>
+</main>
+    
+<%- include("../includes/footer.ejs") %> 
